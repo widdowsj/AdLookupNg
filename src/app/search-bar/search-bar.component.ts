@@ -22,6 +22,6 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.router.navigate(['/search', { searchTerm: this.form.value.searchTerm, searchField: this.form.value.searchTerm, domain: this.form.value.domain }])
+    this.router.navigate(['/search', { searchTerm: this.form.value.searchTerm, searchField: this.form.value.searchField, domain: this.form.value.domain }])
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-result-list',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result-list.component.scss']
 })
 export class ResultListComponent implements OnInit {
+  params: any;
 
-  constructor() { }
+  constructor(route: ActivatedRoute) {
+    const searchField = route.params['searchField'];
+    this.params = route.params;
+  }
 
   ngOnInit(): void {
   }
