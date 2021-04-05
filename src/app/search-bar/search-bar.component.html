@@ -1,9 +1,17 @@
 <div>
-    <span>Search for:</span>
-    <input />
-    <span>in field:</span>
-    <input />
-    <span>domain:</span>
-    <input />
-    <button>Search</button>
+    <form [formGroup]="form" (ngSubmit)="onSearch()">
+        <span>Search for:</span>
+        <mat-form-field>
+            <input matInput formControlName="searchTerm" />
+        </mat-form-field>
+        <span>in field:</span>
+        <mat-form-field>
+            <input matInput formControlName="searchField" />
+        </mat-form-field>
+        <span>domain:</span>
+        <mat-form-field>
+            <input matInput formControlName="domain" />
+        </mat-form-field>
+        <button mat-stroked-button>Search</button>
+    </form>
 </div>
