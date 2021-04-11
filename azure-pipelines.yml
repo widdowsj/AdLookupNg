@@ -20,3 +20,17 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)/dist'
+    artifact: 'website'
+    publishLocation: 'pipeline'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Pay-As-You-Go-1 (12878f76-9141-4997-a45a-57feced15506)'
+    appType: 'webApp'
+    WebAppName: 'AdLookupNg'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
